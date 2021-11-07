@@ -5,6 +5,8 @@
 ////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 
+#include "uArm.h"
+
 using namespace std;
 using namespace cv;
 
@@ -14,6 +16,13 @@ using namespace aruco;
 #include <opencv2/face/facemark.hpp>
 
 #include "Robot.h"
+
+void lab7()
+{
+  CuArm uarm;
+  uarm.init_com("COM4");
+  uarm.init_robot();
+}
 
 int main(int argc, char* argv[])
 {
@@ -44,7 +53,7 @@ int main(int argc, char* argv[])
     //case 4: lab4(); break;
     //case 5: lab5(); break;
     //case 6: lab6(); break;
-    //case 7: lab7(); break;
+    case 7: lab7(); break;
     case 8: robot.draw(); break;
     case 9: robot.calibrate_board(0); break;
     }
