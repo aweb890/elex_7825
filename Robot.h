@@ -2,8 +2,10 @@
 
 #include <opencv2/opencv.hpp>
 
-using namespace std;
+#include "Camera.h"
+#include "uArm.h"
 
+using namespace std;
 using namespace cv;
 using namespace dnn;
 
@@ -12,27 +14,39 @@ class CRobot
 public:
 	CRobot();
 	~CRobot();
-private:
-	Mat _canvas;
-	Size _image_size;
 
-	Mat _cam_virtual_intrinsic;
-	Mat _cam_virtual_extrinsic;
+private:
+	Size _image_size;
+	Mat _canvas;
+
+	vector<vector<Mat>> _simple_robot;
+
+	CCamera _virtualcam;
+
+	//CuArm uarm;
 
 	std::vector<Mat> createBox(float w, float h, float d);
-	void transformBox(std::vector<Mat>& box, Mat T);
-	void drawBox(Mat& im, std::vector<Mat> box, Scalar colour);
-	void drawPose(Mat& im, Mat T);
+	std::vector<Mat> createCoord();
 
-	bool save_camparam(string filename, Mat& cam, Mat& dist);
-	bool load_camparam(string filename, Mat& cam, Mat& dist);
+	void transformPoints(std::vector<Mat>& points, Mat T);
+	
+	void drawBox(Mat& im, std::vector<Mat> box3d, Scalar colour);
+	void drawCoord(Mat& im, std::vector<Mat> coord3d);
 
 public:
+	Mat createHT(Vec3d t, Vec3d r);
 
-	Mat createHT(float tx, float ty, float tz, float rx, float ry, float rz);
+	/////////////////////////////
+	// Lab 3
 
-	void calibrate_board(int cam_id);
+	void create_simple_robot();
+	void draw_simple_robot();
 
-	void draw();
+	/////////////////////////////
+	// Lab 4
+
+	/////////////////////////////
+  // Lab 5
+
 };
 

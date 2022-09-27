@@ -18,6 +18,8 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/aruco.hpp>
 
+#define CANVAS_NAME "7825 Project"
+
 // OpenCV Library
 #pragma comment(lib, ".\\opencv\\x64\\vc16\\staticlib\\ippicvmt.lib")
 #ifdef _DEBUG
