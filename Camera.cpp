@@ -50,12 +50,12 @@ void CCamera::init (Size image_size)
 
 void CCamera::calculate_intrinsic()
 {
-	//_cam_virtual_intrinsic = (Mat1f(3, 4) << (1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0));
+	_cam_virtual_intrinsic = (Mat1f(3, 4) << 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0);
 }
 
 void CCamera::calculate_extrinsic()
 {
-	//_cam_virtual_extrinsic = (Mat1f(4, 4) << (1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1));
+	_cam_virtual_extrinsic = (Mat1f(4, 4) << 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 }
 
 bool CCamera::save_camparam(string filename, Mat& cam, Mat& dist)
